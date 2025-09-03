@@ -68,6 +68,18 @@ myApp/
    👉 http://127.0.0.1:8000/
 
 ---
+<img width="1742" height="911" alt="image" src="https://github.com/user-attachments/assets/61906381-4d0c-4652-8e27-b2580769aa60" />
+<img width="1763" height="912" alt="image" src="https://github.com/user-attachments/assets/08ea7a9d-254c-4f1f-908c-d9d55ec1ead2" />
+<img width="1520" height="869" alt="image" src="https://github.com/user-attachments/assets/28efc858-8d10-4f19-ba5b-a53d71926019" />
+<img width="1013" height="415" alt="image" src="https://github.com/user-attachments/assets/b9a94fef-03b7-4e24-8efd-af03f352b514" />
+<img width="1000" height="483" alt="image" src="https://github.com/user-attachments/assets/b4b59e96-adfe-4875-a662-7a7638acdd03" />
+<img width="1747" height="882" alt="image" src="https://github.com/user-attachments/assets/6466a7b4-accd-4917-8eb3-4c66688e81d7" />
+
+
+
+
+
+
 
 ## 🧠 Recommendation Engine Workflow
 - Extracts features from book metadata (title, description, tags).  
