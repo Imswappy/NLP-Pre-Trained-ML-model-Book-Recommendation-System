@@ -1,4 +1,4 @@
-# 📚 NLP-Powered Book Recommendation System
+# 📚 ReadMate – your intelligent reading companion
 
 This repository hosts a **Book Recommendation Web Application** built with **Django**, integrating **Natural Language Processing (NLP)** and **Pre-trained Machine Learning models** to deliver personalized reading suggestions.  
 
