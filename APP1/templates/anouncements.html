@@ -1,0 +1,29 @@
+{% extends 'base.html'%}
+{%  load static %}
+
+{% block content%}
+
+<h3 class="text-primary mt-3"style="text-align:center;">Announcements</h3>
+
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-12">
+            {%for announcements in announcements%}
+            <ol class="list-group list-group-light mt-2 mb-2">
+                <li class="list-group-item d-flex justify-content-between align-items-start">
+                  <div class="ms-2 me-auto">
+                    <div class="fw-bold">{{announcements.title}}</div>
+                    {{announcements.heading}}
+                    <hr class="hr">
+                    <p class="card-text text-info text-lowercase">  <a href="{{announcements.file.url}}">{{announcements.title}} </a> </p>
+                  </div>
+                  <span class="badge badge-primary rounded-pill text-lowercase">{{announcements.date_registered}}</span>
+                </li>
+              </ol>
+              {% endfor %}
+        </div>
+    </div>
+</div>
+
+{% endblock %}

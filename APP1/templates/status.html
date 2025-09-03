@@ -1,0 +1,94 @@
+{% extends 'base.html'%}
+{%  load static %}
+
+{% block content%}
+
+<div class="container-fluid">
+
+    <div class="row">
+
+        <div class="col-md-2 mt-2"><!--analytics left nav-->
+
+
+            <div class="card text-white bg-white mb-3">
+                <div class="card-header bg-warning">Simple Analytics</div>
+                <div class="card-body bg-white">
+
+                    <ul class="list-group">
+                        <li class="list-group-item bg-secondary text-white ">The Need<h1>{{needed}} </h1><p> equal to 100% </p></li>
+                        <li class="list-group-item bg-info text-white mt-2">Applicants who applied<h1>{{frequency}} </h1><p> equal to {{applicants_percentage}}%</p></li>
+                        <li class="list-group-item bg-secondary text white mt-2">Available Positions<h1>{{range}} </h1><p> equal to {{remaining_position_percentage}}%</p></li>       
+                    </ul>               
+                </div>
+              </div>
+
+
+              <div class="card text-white bg-white mb-3">
+                <div class="card-header bg-warning">Status</div>
+                <div class="card-body bg-white">
+
+                    <ul class="list-group">
+                        <li class="list-group-item bg-secondary text-white "><p> Approved: application is processed and accepted </p></li>
+                        <li class="list-group-item bg-info text-white mt-2"><p> Rejected: application is processed and Rejected </p></li>
+                        <li class="list-group-item bg-secondary text white mt-2"><p> Pending: application is not processed  </p></li>       
+                    </ul>               
+                </div>
+              </div>
+              
+
+
+        </div><!--ends nalytics left nav-->
+
+
+
+        <div class="col-md-10 mt-2"><!--data table  nav-->
+
+            <div class="card   mb-3">
+                <div class="card-header bg-secondary text-white">every applicant has the same chance of being selected, the probability of being selected will be based on the existing needs of the company</div>
+                <div class="card-body">
+                  
+<script>
+    $(document).ready(function () {
+        $('#student').DataTable();
+    });
+</script>
+
+                 <!--table-->
+                 <table class="table table-striped"id="student">
+                    <thead>
+                      <tr>
+                        <th scope="col">Firstname</th>
+                        <th scope="col">Lastname</th>
+                        <th scope="col">School Index</th>
+                        <th scope="col">program</th>
+                        <th scope="col">Passport Size</th>
+                        <th scope="col">Status</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                        {%for student in applicants%}
+                      <tr>
+                        <th>{{student.firstname}}</th>
+                        <td>{{student.lastname}}</td>
+                        <td>{{student.school_index}}</td>
+                        <td>{{student.program}}</td>
+                        <td><img src="{{student.passport_size.url}}"class="img-thumbnail"style="width:70;height:70;"></td>
+                        <td>{{student.Status}}</td>
+                      </tr>
+                      {%endfor%}
+                    </tbody>
+                  </table>
+                 <!--table ends-->
+
+                </div>
+              </div>
+
+        </div><!--ends data table  nav-->
+
+    </div>
+
+
+</div>
+
+
+{% endblock %}

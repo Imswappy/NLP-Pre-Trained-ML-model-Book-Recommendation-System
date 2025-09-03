@@ -1,0 +1,45 @@
+{% extends 'base.html'%}
+{%  load static %}
+
+{% block content%}
+
+<h3 class="text-primary mt-3"style="text-align:center;">Our Herroes</h3>
+<div class="container">
+  <div class="row">
+      {%for herroes in best%}
+      <div class="card mb-3 me-4" style="max-width: 540px;">
+          <div class="row g-0">
+            <div class="col-md-5">
+              <img
+                src="{{herroes.image.url}}"
+                alt="Trendy Pants and Shoes"
+                class="img-thumbnail mt-3"
+              />
+            </div>
+            <div class="col-md-7">
+              <div class="card-header bg-primary text-white  mt-2">{{herroes.full_name}}</div>
+              <div class="card-body">
+                <h5 class="card-title">{{herroes.title}}</h5>
+                <p class="card-text">
+              
+                </p>
+                <p class="card-text">
+                  <small class="text-muted">{{herroes.heading}}</small><hr class="hr">
+                  <small class="text-muted">{{herroes.date_registered}}</small><hr class="hr">
+                  <small class="text-muted">{{herroes.program}}</small><hr class="hr">
+                  <small class="text-muted">{{herroes.department}}</small><hr class="hr">
+            
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+        {% endfor %}
+
+
+  </div>
+</div>
+
+
+
+{% endblock %}

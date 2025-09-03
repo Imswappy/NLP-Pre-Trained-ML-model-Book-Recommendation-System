@@ -1,0 +1,74 @@
+{% extends 'base.html'%}
+{%  load static %}
+
+{% block content%}
+
+<h3 class="text-primary mt-3"style="text-align:center;">Online Application</h3>
+
+
+{% load crispy_forms_tags %}
+<div class="container mt-2 bg-white">
+    <div class="row">
+        <div class="col-md-6">
+            <div class="card mt-3">
+            
+                <div class="card-header bg-secondary"><p class="card-text text-white">Notes:</p></div>
+                <div class="card-body">   
+                    <small class="text-muted">Index number</small><hr class="hr">
+                    <small class="text-muted">application form: pdf</small><hr class="hr">
+                    <small class="text-muted">passport 4x4</small><hr class="hr">
+                   
+                
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-6">
+            <form method="POST">
+                {% csrf_token %}
+            {{ form.regno|as_crispy_field }}
+            {{ form.full_name|as_crispy_field }}
+            {{ form.application_form|as_crispy_field }}
+            {{ form.program|as_crispy_field }}
+            {{ form.passport_size|as_crispy_field }}
+            {{ form.resident|as_crispy_field }}
+          
+            <button type="submit" class="btn btn-primary mt-2 w-100">send</button>    
+            {% for msg in messages %}
+            {% if messages %}
+            <div class="alert alert-info mt-2">
+            {{ msg}}  
+            </div>
+            {%endif%}
+            {% endfor %}
+           
+    
+        </form>
+    
+     
+
+
+
+
+
+
+   
+</ul>
+
+
+        </div>
+
+
+
+
+
+
+
+
+
+
+    </div>
+</div>
+
+
+{% endblock %}

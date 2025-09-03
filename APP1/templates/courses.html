@@ -1,0 +1,50 @@
+{% extends 'base.html'%}
+{%  load static %}
+
+{% block content%}
+
+<h3 class="text-primary mt-3"style="text-align:center;">Offered Courses</h3>
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-12 mb-3">
+            {%for programs in programs%}
+            <div class="accordion accordion-flush" id="accordionFlushExample">
+                <div class="accordion-item">
+                  <h2 class="accordion-header" id="flush-headingOne">
+                    <button
+                      class="accordion-button collapsed text-primary bg-light mt-2"
+                      type="button"
+                      data-mdb-toggle="collapse"
+                      data-mdb-target="#flush-collapseOne{{forloop.counter}}"
+                      aria-expanded="false"
+                      aria-controls="flush-collapseOne"
+                    >
+                      {{programs.program_name}}
+                    </button>
+                  </h2>
+                  <div
+                    id="flush-collapseOne{{forloop.counter}}"
+                    class="accordion-collapse collapse"
+                    aria-labelledby="flush-headingOne"
+                    data-mdb-parent="#accordionFlushExample"
+                  >
+                    <div class="accordion-body">
+
+                        <p class="card-text text-primary"> {{programs.department}}</p><hr class="hr">
+                        <p class="card-text text-primary"> {{programs.program_duration}} Years</p><hr class="hr">
+                        <p class="card-text text-primary"> {{programs.program_fee}}</p><hr class="hr">
+                        <p class="card-text text-primary"> {{programs.date_registered}}</p><hr class="hr">
+                    
+   
+                    </div>
+                  </div>
+                </div>
+            
+              </div>
+              {% endfor %}
+              
+        </div>
+    </div>
+</div>
+{% endblock %}

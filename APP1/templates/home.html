@@ -1,0 +1,88 @@
+{% extends 'base.html'%}
+{%  load static %}
+
+{% block content%}
+
+<div class="container mt-3">
+    <div class="row">
+
+{%for herroes in best%}
+        <div class="col-md-4">
+            <div class="card mb-3">
+                <img src="{{herroes.image.url}}" class="img-thumbnail" alt="Fissure in Sandstone"/>
+                
+                <div class="card-header bg-primary text-white">{{herroes.title}}</div>
+                
+                <div class="card-body">
+                  <h5 class="card-title">{{herroes.full_name}}</h5><hr class="hr">
+                  <p class="card-text">{{herroes.heading}}.</p><hr class="hr">
+                  <a href="{% url 'herroes' %}" class="btn btn-warning mt-2">View All</a>
+                </div>
+              </div>
+        </div>
+
+{% endfor %}
+
+        
+        <div class="col-md-4">
+            {%for programs in programs%}
+            <div class="accordion accordion-flush" id="accordionFlushExample">
+                <div class="accordion-item">
+                  <h2 class="accordion-header" id="flush-headingOne">
+                    <button
+                      class="accordion-button collapsed text-white bg-primary mt-2"
+                      type="button"
+                      data-mdb-toggle="collapse"
+                      data-mdb-target="#flush-collapseOne{{forloop.counter}}"
+                      aria-expanded="false"
+                      aria-controls="flush-collapseOne"
+                    >
+                      {{programs.program_name}}
+                    </button>
+                  </h2>
+                  <div
+                    id="flush-collapseOne{{forloop.counter}}"
+                    class="accordion-collapse collapse"
+                    aria-labelledby="flush-headingOne"
+                    data-mdb-parent="#accordionFlushExample"
+                  >
+                    <div class="accordion-body">
+
+                        <p class="card-text text-primary"> {{programs.department}}</p><hr class="hr">
+                        <p class="card-text text-primary"> {{programs.program_duration}} Years</p><hr class="hr">
+                        <p class="card-text text-primary"> {{programs.program_fee}}</p><hr class="hr">
+                        <p class="card-text text-primary"> {{programs.date_registered}}</p><hr class="hr">
+                    
+   
+                    </div>
+                  </div>
+                </div>
+            
+              </div>
+              {% endfor %}
+              <a href="{% url 'courses' %}" class="btn btn-warning mt-2">View All</a>
+        </div>
+
+        
+        <div class="col-md-4">
+        
+            {%for announcements in announcements%}
+            <ol class="list-group list-group-light mt-3">
+                <li class="list-group-item d-flex justify-content-between align-items-start">
+                  <div class="ms-2 me-auto">
+                    <div class="fw-bold">{{announcements.title}}</div>
+                    {{announcements.heading}}
+                    <hr class="hr">
+                    <p class="card-text text-info text-lowercase">  <a href="{{announcements.file.url}}">{{announcements.title}} </a> </p>
+                  </div>
+                  <span class="badge badge-primary rounded-pill text-lowercase">{{announcements.date_registered}}</span>
+                </li>
+              </ol>
+              {% endfor %}
+              <a href="{% url 'anouncements' %}" class="btn btn-warning mt-2">View All</a>
+        </div>
+
+    </div>
+</div>
+
+{% endblock %}
